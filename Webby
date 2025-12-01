@@ -1,0 +1,335 @@
+<!doctype html>
+<!--
+  Teen Health & Resume Booster
+  Single-file HTML site (HTML + CSS + JS)
+  - Copy this file to index.html
+  - Customize the content in the <!-- EDIT --> sections
+  - Publish with GitHub Pages / Netlify / any static host
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teen Health & Resume Booster</title>
+  <meta name="description" content="Simple, teen-friendly tips for nutrition, fitness, and building healthy habits that improve life and student resumes." />
+  <style>
+    /* -----------------------------
+       Simple CSS - edit as needed
+       ----------------------------- */
+    :root{
+      --bg:#f7fafc; --card:#ffffff; --muted:#6b7280; --accent:#2563eb; --accent-2:#0ea5a4;
+      --radius:14px; --pad:18px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#f8fafc 0%, #eef2ff 100%);color:#111827}
+    header{background:transparent;padding:18px 24px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav{display:flex;gap:12px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px;border-radius:8px}
+    nav a.active{background:rgba(37,99,235,0.08);color:var(--accent)}
+    .container{max-width:1100px;margin:14px auto;padding:18px}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:18px;align-items:center}
+    .card{background:var(--card);border-radius:var(--radius);padding:var(--pad);box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+    .hero h1{margin:0;font-size:28px}
+    .muted{color:var(--muted)}
+    .small{font-size:14px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .card h3{margin:0 0 8px 0}
+    .btn{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;display:inline-block}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(37,99,235,0.12)}
+    footer{padding:28px 0;text-align:center;color:var(--muted)}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      nav{display:none}
+      .grid{grid-template-columns:1fr}
+      .logo{width:44px;height:44px}
+    }
+
+    /* helper */
+    .resource-list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+    .resource-list li{padding:10px;border-radius:10px;background:linear-gradient(180deg,#fbfdff,#fff);border:1px solid rgba(15,23,42,0.04)}
+    .tag{display:inline-block;background:#eef2ff;color:var(--accent);padding:6px 8px;border-radius:8px;font-size:12px}
+    .center{text-align:center}
+    .tiny{font-size:13px}
+    .input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6edf3}
+    .two-col{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    @media (max-width:900px){.two-col{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="card">
+    <div class="brand">
+      <div class="logo">TH</div>
+      <div>
+        <div style="font-weight:700">Teen Health & Resume Booster</div>
+        <div class="tiny muted">Small changes → Big impact</div>
+      </div>
+    </div>
+    <nav id="topNav">
+      <a href="#home" class="active">Home</a>
+      <a href="#nutrition">Nutrition</a>
+      <a href="#fitness">Fitness</a>
+      <a href="#resume">Boost Your Resume</a>
+      <a href="#resources">Resources</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- HOME -->
+    <section id="home" class="hero">
+      <div>
+        <div class="card">
+          <h1>Simple, realistic health tips for busy students</h1>
+          <p class="muted">This site helps teens who want better energy, healthier habits, and small steps that improve both life and their résumé. No fad diets — just safe, evidence-backed ideas you can start today.</p>
+          <div style="margin-top:12px">
+            <a class="btn" href="#nutrition">Start: Nutrition Tips</a>
+            <a class="btn ghost" href="#contact" style="margin-left:8px">Get Involved</a>
+          </div>
+          <div style="margin-top:16px" class="small muted">Visitor count (local): <strong id="visCount">0</strong></div>
+        </div>
+
+        <div class="grid" style="margin-top:14px">
+          <div class="card">
+            <h3>Quick Wins</h3>
+            <ul class="muted small">
+              <li>Swap sugary drinks for water or flavored seltzer</li>
+              <li>10–20 minute daily walk or bodyweight circuit</li>
+              <li>Use small, measurable goals (e.g., 3 push-ups extra per day)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Why It Helps</h3>
+            <p class="muted small">Better sleep, focus, and energy → improved grades and stronger extracurricular performance. Colleges notice sustained effort.</p>
+          </div>
+          <div class="card">
+            <h3>Be Kind to Yourself</h3>
+            <p class="muted small">Small, consistent changes beat quick fixes. Track progress, not perfection.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="card">
+        <h3 class="center">Mini Self-Check</h3>
+        <p class="muted small">Answer honestly to get a quick tip.</p>
+        <label class="small">How many days/week do you exercise?</label>
+        <select id="q1" class="input" style="margin-top:6px">
+          <option value="0">0</option>
+          <option value="1-2">1–2</option>
+          <option value="3-4">3–4</option>
+          <option value="5+">5+</option>
+        </select>
+        <label class="small" style="margin-top:8px">Do you often feel low energy?</label>
+        <select id="q2" class="input" style="margin-top:6px">
+          <option value="yes">Yes</option>
+          <option value="sometimes">Sometimes</option>
+          <option value="no">No</option>
+        </select>
+        <button class="btn" style="margin-top:10px" onclick="runCheck()">Get a Tip</button>
+        <div id="checkResult" style="margin-top:12px" class="muted small"></div>
+      </aside>
+    </section>
+
+    <!-- ABOUT / NARRATIVE -->
+    <section id="about" style="margin-top:18px">
+      <div class="card">
+        <h2>About this project</h2>
+        <p class="muted">This project was created by a high school student to give other students easy, practical health tips that fit into busy school schedules. It is student-first: clear steps, safe advice, and links to trusted organizations.</p>
+        <p class="muted small"><strong>Tip:</strong> Write here why you created the site and any personal experience that led you to build it. Colleges respond well to short, honest stories.</p>
+      </div>
+    </section>
+
+    <!-- NUTRITION -->
+    <section id="nutrition" style="margin-top:18px">
+      <div class="two-col">
+        <div class="card">
+          <h2>Nutrition Tips for Students</h2>
+          <!-- EDIT: Add your own content here -->
+          <p class="muted">Short, practical nutrition advice that fits a student schedule.</p>
+
+          <h3>Easy swaps</h3>
+          <ul class="muted small">
+            <li>Water and seltzer instead of soda</li>
+            <li>Greek yogurt or nuts instead of candy</li>
+            <li>Prep simple breakfasts: overnight oats, smoothies, whole grain toast</li>
+          </ul>
+
+          <h3>Meal ideas</h3>
+          <ul class="muted small">
+            <li>Power bowl: brown rice, beans, veggies, and a lean protein</li>
+            <li>Quick salad with canned tuna or beans</li>
+            <li>Snack box: fruit + nuts + a cheese stick</li>
+          </ul>
+
+          <h3>Safety note</h3>
+          <p class="muted small">These tips are general. For medical conditions (diabetes, allergies), consult a healthcare provider.</p>
+        </div>
+
+        <aside class="card">
+          <h3>Healthy Snack Ideas</h3>
+          <ul class="resource-list small">
+            <li>Apple slices + peanut butter</li>
+            <li>Carrot sticks + hummus</li>
+            <li>Trail mix (nuts + seeds + dried fruit)</li>
+            <li>Greek yogurt + berries</li>
+          </ul>
+          <div style="margin-top:12px">
+            <a class="btn" href="#contact">Share Your Favorite Snack</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FITNESS -->
+    <section id="fitness" style="margin-top:18px">
+      <div class="card">
+        <h2>Fitness & Activity — No Gym Needed</h2>
+        <p class="muted">Short routines you can do at home or during school breaks.</p>
+
+        <h3>Beginner 10-minute bodyweight circuit</h3>
+        <ol class="muted small">
+          <li>30s Jumping jacks</li>
+          <li>10 Air squats</li>
+          <li>10 Push-ups (knees OK)</li>
+          <li>20s Plank</li>
+          <li>20s Walk or march in place</li>
+        </ol>
+        <p class="muted small">Repeat 2x if you can. Increase reps by 2–5 every week.</p>
+
+        <h3>How to start</h3>
+        <ul class="muted small">
+          <li>Pick 3 days/week to do the circuit</li>
+          <li>Track progress in a simple notebook or phone note</li>
+          <li>Find a friend to do it with — accountability helps</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESUME / BOOST -->
+    <section id="resume" style="margin-top:18px">
+      <div class="card">
+        <h2>How Health Habits Boost Your Résumé</h2>
+        <p class="muted">Small health projects help with leadership, initiative, and demonstrated sustained effort — all things colleges and employers notice.</p>
+
+        <h3>Project ideas that show leadership</h3>
+        <ul class="muted small">
+          <li>Start a weekly walk club at school</li>
+          <li>Run a short health workshop (sleep, nutrition, stress)</li>
+          <li>Lead a healthy snack drive for teammates</li>
+          <li>Create a health resource page (your website!)</li>
+          <li>Document hours and outcomes — keep a short log for applications</li>
+        </ul>
+
+        <h3>How to write this on applications</h3>
+        <p class="muted small">Focus on: what you did, people reached, skills learned (organizing, leadership), and measurable results ("trained 45 students" / "improved attendance at club by 30%" / "ran site for 3 months").</p>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="resources" style="margin-top:18px">
+      <div class="card">
+        <h2>Trusted Resources</h2>
+        <ul class="resource-list">
+          <li><strong>CDC</strong> — Healthy Living and Nutrition (cdc.gov)</li>
+          <li><strong>WHO</strong> — Adolescent health (who.int)</li>
+          <li><strong>Mayo Clinic</strong> — Nutrition and fitness basics (mayoclinic.org)</li>
+          <li><strong>National Suicide & Crisis Lifeline</strong> — 988 (U.S.)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:18px">
+      <div class="card">
+        <h2>Contact / Share Feedback</h2>
+        <p class="muted small">Want to suggest content or tell us how the site helped? Leave a short message.</p>
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <label>Your name (optional)</label>
+          <input class="input" id="name" placeholder="Your name">
+          <label style="margin-top:8px">Message</label>
+          <textarea id="message" rows="4" placeholder="How can we improve or how did this help?" class="input"></textarea>
+          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+            <button class="btn" type="submit">Send</button>
+            <div id="formMsg" class="muted small"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer style="margin-top:18px">
+      <div class="muted small">Created by a student — for students. Content is informational, not medical advice.</div>
+    </footer>
+
+  </main>
+
+  <script>
+    // -----------------------------
+    // Simple JS helpers: navigation active state, mini-check, visitor counter, form
+    // -----------------------------
+    // Navigation
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        document.querySelectorAll('nav a').forEach(x=>x.classList.remove('active'));
+        a.classList.add('active');
+      })
+    })
+
+    // Visitor counter (local to browser) - useful for early testing
+    (function(){
+      try{
+        let c = localStorage.getItem('th_vis')||0; c = Number(c)+1; localStorage.setItem('th_vis',c); document.getElementById('visCount').innerText = c;
+      }catch(e){console.warn(e)}
+    })();
+
+    // Mini self-check
+    function runCheck(){
+      const q1 = document.getElementById('q1').value;
+      const q2 = document.getElementById('q2').value;
+      const out = document.getElementById('checkResult');
+      let tip = '';
+      if(q1 === '0') tip = 'Try 2 short sessions a week (10 min each). Start small.';
+      else if(q1 === '1-2') tip = 'Good start — add one more 10–15 minute session this week.';
+      else if(q1 === '3-4') tip = 'Solid routine. Focus on consistency and small progress.';
+      else tip = 'Great job — maintain and gradually increase intensity.';
+      if(q2 === 'yes') tip += ' Also check sleep and reduce late-night caffeine.';
+      out.innerText = tip;
+    }
+
+    // Contact form (stores to localStorage for now)
+    function submitForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value || 'Anonymous';
+      const msg = document.getElementById('message').value.trim();
+      const el = document.getElementById('formMsg');
+      if(!msg){ el.innerText='Please write a short message.'; return; }
+      // store messages locally (replace with server or Google Form for real site)
+      try{
+        const existing = JSON.parse(localStorage.getItem('th_msgs')||'[]');
+        existing.push({name, msg, time:new Date().toISOString()});
+        localStorage.setItem('th_msgs', JSON.stringify(existing));
+        el.innerText='Thanks! Your message was saved locally.';
+        document.getElementById('message').value='';
+      }catch(err){ el.innerText='Could not save message locally.' }
+    }
+
+    // Smooth scroll for hash links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const id = this.getAttribute('href');
+        if(id.length>1){
+          e.preventDefault(); document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      })
+    })
+  </script>
+</body>
+</html>
